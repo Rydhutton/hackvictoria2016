@@ -1,5 +1,5 @@
 from django import forms
-from main.models import UserProfile, Trip, Location
+from main.models import Trip, Location
 from django.contrib.auth.models import User
 from datetimewidget.widgets import DateWidget
 import datetime
@@ -17,17 +17,6 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username', 'email', 'password')
 
-
-
-class UserProfileForm(forms.ModelForm):
-    age = forms.IntegerField()
-    type = forms.ChoiceField(choices=TYPE)
-    about = forms.CharField(widget=forms.Textarea)
-
-
-    class Meta:
-        model = UserProfile
-        fields = ('age', 'location', 'type', 'about')
 
 
 class TripForm(forms.ModelForm):

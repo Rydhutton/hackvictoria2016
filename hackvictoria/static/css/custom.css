@@ -1,3 +1,10 @@
+.horizontal-center {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.block {display: block;}
+
 
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -26,7 +33,7 @@
 }
 
 .margin-top{
-  margin-top: 40px;
+  margin-top: 70px;
 }
 .margin-bot{
   margin-bottom: 40px;
@@ -48,17 +55,31 @@
    text-align: center;
 }
 
-
-.navbar-static-top {
-  margin-bottom: 1px;
+.navbar {
+  border-bottom: 0px;
 }
 
+.navbar-static-top {
+  margin-bottom: 0px;
+}
+
+.color-blue {
+    background-color: #6699ff;
+     border-color: #1e3f7b;
+}
+
+.panel-dark{
+    color: #fff;
+    background-color: #1e3f7b;
+    border-color: #1e3f7b;
+}
 
 .navbar-default {
-  background-color: #000000;
+  background-color: #1e3f7b;
   border-color: #0;
   color: white;
 }
+
 
 
 .hidden {

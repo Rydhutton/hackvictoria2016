@@ -4,7 +4,7 @@
 
 {% block navbar %}
     <div class="pull-xs-right">
-        <a class="navbar-brand" href="login/">Login</a>
+        <a class="navbar-brand " href="login/">Login</a>
     </div>
 {% endblock %}
 
@@ -15,17 +15,17 @@
       <!-- Three columns of text below the carousel -->
       <div class="row text-center">
         <div class="col-md-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="../../static/pics/bulb.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Save money!</h2>
           <p>Taking a car on the ferry is expensive. A driver can potentially save over $30 per trip.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="../../static/pics/tree.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Save the environment!</h2>
           <p>100 people carpooling can prevent 1,320 pounds of carbon monoxide from being released into the atmosphere in a single year.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <img class="img-circle" src="../../static/pics/train.jpg" alt="Generic placeholder image" width="140" height="140">
           <h2>Faster than the bus!</h2>
           <p>Riding the bus sucks. Get a faster, more comfortable ride for as little as $5-$10.</p>
         </div><!-- /.col-lg-4 -->
@@ -40,40 +40,55 @@
         <!--REGISTRATION -->
 {% block main %}
 
-        <div class="container marketing centered">
-                <form class = "form-horizontal col-md-5 col-md-offset-4"  id="user_form" method="post" action="/main/"
+        <div class="col-md-3  horizontal-center">
+        <div class="panel  color-blue">
+            <div class="panel-heading panel-dark "> <h4 class="panel-title center">Get started in under 5 mins</h4> </div>
+            <div class="panel-body ">
+                <div class="col-md-8 horizontal-center">
+                <form class = "form-horizontal"  id="user_form" method="post" action="/main/"
                         enctype="multipart/form-data">
                     {% csrf_token %}
 
 
                     <!-- username input-->
                     <div class="form-group">
-                      <div class="col-md-8">
+                      <div class="">
                       <input id="id_username" name="username" type="text" placeholder="Username" class="form-control input-md">
                       </div>
                     </div>
 
                     <!-- email input-->
                     <div class="form-group">
-                      <div class="col-md-8">
+                      <div class="">
                       <input id="id_email" name="email" type="text" placeholder="Email" class="form-control input-md">
                       </div>
                     </div>
 
                     <!-- Password input-->
                     <div class="form-group">
-                      <div class="col-md-8">
+                      <div class="">
                           <input id="id_password" maxlength="128" name="password" type="password" placeholder="Password" class="form-control input-md">
                       </div>
                     </div>
 
-
-
-                    <div class="col-md-offset-2 ">
-                        <input class=" btn btn-lg btn-default" type="submit" name="submit" value="Register"/>
+                      <!-- Password input-->
+                    <div class="form-group">
+                      <div class="">
+                          <input id="id_check" maxlength="128" name="check" type="password" placeholder="Confirm password." class="form-control input-md">
+                      </div>
                     </div>
+
+
+                    <input class=" btn btn-lg btn-default horizontal-center " type="submit" name="submit" value="Register"/>
+
                 </form>
+                    </div>
+                </div>
+
 
         </div>
+            </div>
+
+
 
 {% endblock %}

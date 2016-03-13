@@ -8,7 +8,7 @@
 {% endblock %}
 {% block main %}
 
-<div class="container-fluid">
+<div class="container-fluid margin-top">
     <!-- search left side block -->
     <div class="col-md-offset-2 col-md-2 sidebar">
          <ul class="nav nav-sidebar list-group-item">
@@ -32,7 +32,7 @@
                 <ul class="list-group">
                 {% for result in results %}
                     <li class="list-group-item left ">
-                        <h4>{{result.user.username}}, {{result.looktype}}</h4>
+                        <h4>{{result.user}}, {{result.looktype}}</h4>
                         <span>{{result.origin}}->{{result.destination}}, {{result.date}} </span>
                         <div>
                             <spam>{{result.msg}}</spam>
@@ -46,6 +46,8 @@
                     </li>
                 {% endfor %}
                 </ul>
+                {% else %}
+                     <h4>There are no matches at this time :( </h4>
 
 
                 {% endif %}

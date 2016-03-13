@@ -3,7 +3,7 @@
 
 {% block navbar %}
     <div class="pull-xs-right">
-        <a class="navbar-brand" href="login/">Login</a>
+        <a class="navbar-brand" href="logout/">Logout</a>
     </div>
 {% endblock %}
 
@@ -12,97 +12,94 @@
 {% block main %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     {{ form.media }}
-    <div class="container marketing margin-top">
+    <div class="container margin-top col-md-4 horizontal-center ">
 
-        <form  class="col-md-8 col-md-offset-4" id="login_form" method="post" action="/main/addtrip/">
+        <form  class="" id="login_form" method="post" action="/main/addtrip/">
             {% csrf_token %}
+            <ul>
+
+               <!-- username input-->
+                    <div class="form-group left">
+                      <div class="">
+                      <input id="id_name" name="name" type="text" placeholder="Trip Name" class="form-control">
+                      </div>
+                    </div>
 
 
-           <!-- username input-->
+                 <!-- Origin -->
+
                 <div class="form-group left">
-                  <div class="col-md-4">
-                  <input id="id_name" name="name" type="text" placeholder="name" class="form-control">
+                  <label class=" control-label" for="id_origin">Select your origin</label>
+                  <div class="">
+                    <select id="id_origin" name="origin" class="form-control">
+                        {% for location in locations %}
+                          <option value="{{location}}">{{location}}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Destination -->
+                <div class="form-group left">
+                  <label class="control-label" for="id_origin">Select your destination</label>
+                  <div class="">
+                    <select id="id_destination" name="destination" class="form-control">
+                        {% for location in locations%}
+                          <option value="{{location}}">{{location}}</option>
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+
+                <div class="">
+                     <label class="control-label" >Select the date you plan on traveling</label>
+                    {{ form.date }}
+                </div>
+
+
+
+                <!-- Select Type -->
+                <div class="form-group left">
+                  <label class=" control-label" for="id_looktype"></label>
+                  <div class="">
+                    <select id="id_looktype" name="looktype" class="form-control">
+                      <option value="Driver">Driver</option>
+                      <option value="Passenger">Passenger</option>
+                    </select>
                   </div>
                 </div>
 
 
-             <!-- Origin -->
-
-            <div class="form-group left">
-              <label class="col-md-4 control-label" for="id_origin">Select Origin</label>
-              <div class="col-md-4">
-                <select id="id_origin" name="origin" class="form-control">
-                    {% for location in locations %}
-                      <option value="{{location}}">{{location}}</option>
-                    {% endfor %}
-                </select>
-              </div>
-            </div>
-
-            <br>
-
-            <!-- Destination -->
-            <div class="form-group left">
-              <label class="col-md-4 control-label" for="id_origin">Select Destination</label>
-              <div class="col-md-4">
-                <select id="id_destination" name="destination" class="form-control">
-                    {% for location in locations%}
-                      <option value="{{location}}">{{location}}</option>
-                    {% endfor %}
-                </select>
-              </div>
-            </div>
-            <br>
-
-            <div class="col-md-8">
-                {{ form.date }}
-            </div>
-            <br>
+                   <!-- Select pass -->
+                <div class="form-group left">
+                  <label class=" control-label" for="id_passengers">If you are driving select how many passengers you can accomadate</label>
+                  <div class="">
+                      <select id="id_passengers" name="passengers" class="form-control">
+                      <option value=0>0</option>
+                      <option value=1>1</option>
+                      <option value=2>2</option>
+                      <option value=3>3</option>
+                      <option value=4>4</option>
+                      <option value=5>5</option>
+                      <option value=6>6</option>
+                    </select>
+                  </div>
+                </div>
 
 
-            <!-- Select Type -->
-            <div class="form-group left">
-              <label class="col-md-8 control-label" for="id_looktype"></label>
-              <div class="col-md-8">
-                <select id="id_looktype" name="looktype" class="form-control">
-                  <option value="Driver">Driver</option>
-                  <option value="Passenger">Passenger</option>
-                </select>
-              </div>
-            </div>
-            <br>
+                <!-- MSG -->
+                <div class="form-group left">
+                  <label class=" control-label" for="id_msg">Message</label>
+                  <div class="">
+                    <textarea id="id_msg" class="form-control"  name="msg">Please add any additonal information you feel is relevant.</textarea>
+                  </div>
+                </div>
 
-               <!-- Select pass -->
-            <div class="form-group left">
-              <label class="col-md-4 control-label" for="id_passengers">Passengers</label>
-              <div class="col-md-4">
-                  <select id="id_passengers" name="passengers" class="form-control">
-                  <option value=0>0</option>
-                  <option value=1>1</option>
-                  <option value=2>2</option>
-                  <option value=3>3</option>
-                  <option value=4>4</option>
-                  <option value=5>5</option>
-                  <option value=6>6</option>
-                </select>
-              </div>
-            </div>
-             <br>
+                <div class="margin-top">
+                    <input class=" btn btn-lg btn-default" type="submit" name="submit" value="Confirm"/>
+                        </div>
 
-            <!-- MSG -->
-            <div class="form-group left">
-              <label class="col-md-4 control-label" for="id_msg">Message</label>
-              <div class="col-md-8">
-                <textarea id="id_msg" class="form-control"  name="msg">default text</textarea>
-              </div>
-            </div>
-            <br>
-
-            <br>
-            <div class="margin-top">
-                <input class=" btn btn-lg btn-default" type="submit" name="submit" value="Confirm"/>
-                    </div>
-
+            </ul>
 
 
 

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
-from main.forms import UserForm, UserProfileForm, TripForm
+from main.forms import UserForm, TripForm
 from main.models import UserProfile, User, Location, Trip
 from django.template import RequestContext
 from django.shortcuts import render_to_response
@@ -17,10 +17,21 @@ def mainpage(request):
     else:
         if request.method == 'POST':
             user_form = UserForm(data=request.POST)
-            if user_form.is_valid():
+            if user_form.is_valid() and (request.POST['password'] == request.POST['check']):
                 user = user_form.save()
                 user.set_password(user.password)
                 user.save()
+                userprofile = UserProfile()
+                userprofile.user = user.username
+                userprofile.email = user.email
+                userprofile.joined = datetime.datetime.now()
+                userprofile.save()
+
+                user = authenticate(username=user_form.cleaned_data['username'],
+                                    password=user_form.cleaned_data['password'],
+                                    )
+                login(request, user)
+
                 return HttpResponseRedirect('/main/userpage/')
 
             else:
@@ -83,9 +94,6 @@ def userpage(request):
 
             print usertrip.date, type, usertrip.origin,usertrip.destination
 
-
-
-
             qs = Trip.objects.filter(date=usertrip.date, looktype=type, origin=usertrip.origin, destination=usertrip.destination).exclude(user=request.user)
             print qs
             results = qs.order_by('date').values()
@@ -94,27 +102,6 @@ def userpage(request):
 
         return render_to_response('main/user_page.html',{'trips':trips,'results':results }, context)
 
-def editprofile(request):
-    context = RequestContext(request)
-    if not request.user.is_authenticated():
-         return HttpResponseRedirect('/main/login/')
-    else:
-        if request.method == 'POST':
-            form = UserProfileForm(data=request.POST)
-            if form.is_valid():
-                #delete old userprofile
-                old = UserProfile.objects.get(user=request.user)
-                old.delete()
-                userprofile = form.save(commit=False)
-                userprofile.user = request.user
-                userprofile.joined = datetime.datetime.now()
-                userprofile.save()
-                return HttpResponseRedirect('/main/userpage/')
-            else:
-                print form.errors
-        else:
-            form = UserProfileForm()
-            return render_to_response('main/edit_profile.html',{'form': form}, context)
 
 def addtrip(request):
     context = RequestContext(request)

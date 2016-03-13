@@ -7,6 +7,5 @@ urlpatterns = [
     url(r'logout/', views.logout_user, name='logout_user'),
     url(r'userpage/', views.userpage, name='userpage'),
     url(r'addtrip/', views.addtrip, name='addtrip'),
-     url(r'editprofile/(.*)', views.editprofile, name='editprofile'),
 
 ]
