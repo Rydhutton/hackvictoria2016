@@ -35,7 +35,7 @@ def login_user(request):
             if user.is_active:
                 login(request, user)
                 #LOGIN
-                return HttpResponseRedirect('/userpage/')
+                return HttpResponseRedirect('/main/userpage/')
 
             else:
                 return HttpResponse("Account is inactive")
@@ -50,14 +50,14 @@ def login_user(request):
 def userpage(request):
     context = RequestContext(request)
     if not request.user.is_authenticated():
-         return HttpResponseRedirect('/login/')
+         return HttpResponseRedirect('/main/login/')
     else:
         return render_to_response('main/user_page.html',{}, context)
 
 def editprofile(request):
     context = RequestContext(request)
     if not request.user.is_authenticated():
-         return HttpResponseRedirect('/login/')
+         return HttpResponseRedirect('/main/login/')
     else:
         if request.method == 'POST':
             form = UserProfileForm(data=request.POST)
@@ -67,8 +67,8 @@ def editprofile(request):
             else:
                 print form.errors
         else:
-            user_form = UserForm()
-            return render_to_response('main/edit_profile.html',{}, context)
+            form = UserProfileForm()
+            return render_to_response('main/edit_profile.html',{'form': form}, context)
 
 def addtrip(request):
     context = RequestContext(request)

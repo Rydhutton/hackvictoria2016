@@ -5,12 +5,16 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 TYPE = (
-    'Driver',
-    'Passenger',
-    )
-LOCATION_CHOICES = (
-    'Victoria',
+    ('Driver', 'Driver'),
+    ('Passenger','Passenger'),
 )
+
+
+class Location(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __unicode__(self):
+        return self.name
 
 class UserProfile(models.Model):
 
@@ -19,9 +23,10 @@ class UserProfile(models.Model):
     #TODO
     #picture = models.ImageField(upload_to='profile_images', blank=True)
     age = models.IntegerField(default=0)
-    location = models.CharField(max_length=200)
-    joined = models.DateTimeField()
-    type = models.CharField(max_length=200,choices=TYPE)
+    location = models.CharField(max_length=200,null=True )
+    joined = models.DateTimeField(null=True)
+    type = models.CharField(max_length=200,choices=TYPE, default=TYPE[0])
+    about = models.CharField(max_length=200, null=True)
 
 
      # Override the __unicode__() method to return out something meaningful!
@@ -31,15 +36,16 @@ class UserProfile(models.Model):
 
 
 class Trip(models.Model):
-    user = models.manyToOne(UserProfile)
-    origin = models.CharField(max_length=200,choices= LOCATION_CHOICES)
-    destination = models.CharField(max_length=200,choices= LOCATION_CHOICES)
-    date = models.DateTimeField()
-    date_posted = models.DateTimeField()
-    active = models.BooleanField(defualt=True)
+    #user = models.ManyToMany(UserProfile)
+    origin = models.OneToOneField(User, related_name='location_origin')
+    destination = models.OneToOneField(User, related_name='location_dest')
+    date = models.DateTimeField(null=True)
+    date_posted = models.DateTimeField(null=True)
+    active = models.BooleanField(default=True)
     num_passengers = models.IntegerField(default=0)
     msg = models.CharField(max_length=200)
-    looktype = models.CharField(max_length=200,choices=TYPE)
+    looktype = models.CharField(max_length=200,choices=TYPE, default=TYPE[0])
+
 
 
 
