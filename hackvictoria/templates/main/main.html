@@ -1,56 +1,79 @@
 {% extends 'base.html' %}
 
-{% block headers %}
+{% load staticfiles %}
 
-    <div>
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="left">
-          <h2><font color="black">Save money!</font></h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-        </div>
-        <div class="center">
-          <h2>Reduce your carbon footprint!</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
-       </div>
-        <div class="right">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</font></p>
-        </div>
-      </div>
-        </div>
+{% block navbar %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand" href="login/">Login</a>
+    </div>
+{% endblock %}
+
+{% block headers %}
+    <body background="../../static/pics/Ferry.jpg"> </body>
+    <div class="container marketing margin-top margin-bot ">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Save money!</h2>
+          <p>Taking a car on the ferry is expensive. A driver can potentially save over $30 per trip.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Save the environment!</h2>
+          <p>100 people carpooling can prevent 1,320 pounds of carbon monoxide from being released into the atmosphere in a single year.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+          <h2>Faster than the bus!</h2>
+          <p>Riding the bus sucks. Get a faster, more comfortable ride for as little as $5-$10.</p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+
 
 {% endblock %}
 
+
+        <!--REGISTRATION -->
 {% block main %}
 
-    <body>
-    <div style="position:relative;left:center;bottom:-150px;opacity:0.4;background-color:navy;">
-        <h1>Register</h1>
+        <div class="container marketing centered">
+                <form class = "form-horizontal col-md-5 col-md-offset-4"  id="user_form" method="post" action="/main/"
+                        enctype="multipart/form-data">
+                    {% csrf_token %}
 
-        {% if registered %}
-        Rango says: <strong>thank you for registering!</strong>
-        <a href="/main/">Return to the homepage.</a><br />
-        {% else %}
-        Rango says: <strong>register here!</strong><br />
 
-        <form id="user_form" method="post" action="/main/"
-                enctype="multipart/form-data">
+                    <!-- username input-->
+                    <div class="form-group">
+                      <div class="col-md-8">
+                      <input id="id_username" name="username" type="text" placeholder="Username" class="form-control input-md">
+                      </div>
+                    </div>
 
-            {% csrf_token %}
+                    <!-- email input-->
+                    <div class="form-group">
+                      <div class="col-md-8">
+                      <input id="id_email" name="email" type="text" placeholder="Email" class="form-control input-md">
+                      </div>
+                    </div>
 
-            <!-- Display each form. The as_p method wraps each element in a paragraph
-                 (<p>) element. This ensures each element appears on a new line,
-                 making everything look neater. -->
-            {{ user_form.as_p }}
+                    <!-- Password input-->
+                    <div class="form-group">
+                      <div class="col-md-8">
+                          <input id="id_password" maxlength="128" name="password" type="password" placeholder="Password" class="form-control input-md">
+                      </div>
+                    </div>
 
-            <!-- Provide a button to click to submit the form. -->
-            <input type="submit" name="submit" value="Register" />
-            <a href="#" class="btn btn-lg btn-default">submit</a>
-        </form>
-        {% endif %}
-    </div>
-    </body>
+
+
+                    <div class="col-md-offset-2 ">
+                        <input class=" btn btn-lg btn-default" type="submit" name="submit" value="Register"/>
+                    </div>
+                </form>
+
+        </div>
 
 {% endblock %}
-

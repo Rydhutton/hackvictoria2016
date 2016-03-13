@@ -1,12 +1,59 @@
 {% extends 'base.html' %}
 
 
+{% block navbar %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand" href="logout/">Logout</a>
+    </div>
+{% endblock %}
 {% block main %}
- <a href="/main/addtrip/" class="btn btn-lg btn-default">Add Trip</a>
- <a href="/main/editprofile/" class="btn btn-lg btn-default">Edit Profile</a>
+
+<div class="container-fluid">
+    <!-- search left side block -->
+    <div class="col-md-offset-2 col-md-2 sidebar">
+         <ul class="nav nav-sidebar list-group-item">
+             <span class="sr-only">(current)</span></a></li>
+             {% for trip in trips %}
+                <li ><a href="/main/userpage/?trip={{trip.key}}"> {{trip.name}}</a></li>
+             {% endfor %}
+             <li><a href="/main/addtrip/"> + Add New Trip</a></li>
+          </ul>
+
+
+    </div>
+
+    <!-- center block -->
+
+     <div class="col-md-5">
+            <div class="row  text-center margin-bot-19">
+
+                {% if results %}
+
+                <ul class="list-group">
+                {% for result in results %}
+                    <li class="list-group-item left ">
+                        <h4>{{result.user.username}}, {{result.looktype}}</h4>
+                        <span>{{result.origin}}->{{result.destination}}, {{result.date}} </span>
+                        <div>
+                            <spam>{{result.msg}}</spam>
+                        </div>
+                        <div class="right">
+                         <button type="button" class="btn btn-default">Message</button>
+                        </div>
 
 
 
+                    </li>
+                {% endfor %}
+                </ul>
+
+
+                {% endif %}
+
+
+
+
+            </div>
 
 
 {% endblock %}
