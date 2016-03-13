@@ -38,7 +38,8 @@ def mainpage(request):
                 print user_form.errors
         else:
             user_form = UserForm()
-
+            #if request.user.is_authenticated():
+                #return HttpResponseRedirect('/main/userpage/')
 
 
     return render_to_response('main/main.html',{'form': user_form,}, context)
@@ -77,7 +78,6 @@ def userpage(request):
     context = RequestContext(request)
     trips = None
     results = None
-    usertrip=None
     if not request.user.is_authenticated():
          return HttpResponseRedirect('/main/login/')
     else:
@@ -102,7 +102,7 @@ def userpage(request):
 
 
 
-        return render_to_response('main/user_page.html',{'trips':trips,'results':results, 'usertrip':usertrip }, context)
+        return render_to_response('main/user_page.html',{'trips':trips,'results':results }, context)
 
 
 def addtrip(request):

@@ -12,21 +12,13 @@
     <!-- search left side block -->
     <div class="col-md-offset-2 col-md-2 sidebar">
          <ul class="nav nav-sidebar list-group-item">
-             <span class="sr-only">(current)</span></li>
+             <span class="sr-only">(current)</span></a></li>
              {% for trip in trips %}
                 <li ><a href="/main/userpage/?trip={{trip.key}}"> {{trip.name}}</a></li>
              {% endfor %}
              <li><a href="/main/addtrip/"> + Add New Trip</a></li>
           </ul>
 
-        {% if usertrip  %}
-          <ul class="nav nav-sidebar list-group-item">
-            <li><h4>Current Trip: {{usertrip.name}}</h4></li>
-            <li><span>{{usertrip.origin}} -> {{usertrip.destination}}</span></li>
-            <li><span>{{usertrip.date}}</span></li>
-          </ul>
-
-        {% endif %}
 
     </div>
 
@@ -40,10 +32,10 @@
                 <ul class="list-group">
                 {% for result in results %}
                     <li class="list-group-item left ">
-                        <h3 >{{result.user}}, {{result.looktype}}</h3>
-                        <h4>{{result.origin}} -> {{result.destination}}, {{result.date}} </h4>
+                        <h4>{{result.user}}, {{result.looktype}}</h4>
+                        <span>{{result.origin}}->{{result.destination}}, {{result.date}} </span>
                         <div>
-                            <span>{{result.msg}}</span>
+                            <spam>{{result.msg}}</spam>
                         </div>
                         <div class="right">
                          <button type="button" class="btn btn-default">Message</button>
