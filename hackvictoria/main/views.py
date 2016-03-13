@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from main.forms import UserForm, UserProfileForm
+from main.models import UserProfile, User
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login
+import datetime
+
 # Create your views here.
 
 def mainpage(request):
@@ -62,8 +65,14 @@ def editprofile(request):
         if request.method == 'POST':
             form = UserProfileForm(data=request.POST)
             if form.is_valid():
-                user = form.save()
-                user.save()
+                #delete old userprofile
+                old = UserProfile.objects.get(user=request.user)
+                old.delete()
+                userprofile = form.save(commit=False)
+                userprofile.user = request.user
+                userprofile.joined = datetime.datetime.now()
+                userprofile.save()
+                return HttpResponseRedirect('/main/userpage/')
             else:
                 print form.errors
         else:

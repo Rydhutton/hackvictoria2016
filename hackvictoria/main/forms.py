@@ -20,11 +20,8 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
-    #queryset=Location.objects.all()
-    #user = forms.ModelMultipleChoiceField(queryset=Location.objects.all())
     age = forms.IntegerField()
     location = forms.ModelChoiceField(queryset=Location.objects.all())
-    joined = datetime.datetime.now()
     type = forms.ChoiceField(choices=TYPE)
     about = forms.CharField(widget = forms.Textarea)
 

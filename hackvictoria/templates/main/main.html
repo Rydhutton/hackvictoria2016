@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
+{% block headers %}
+
+    <div>
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="left">
+          <h2><font color="black">Save money!</font></h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+        </div>
+        <div class="center">
+          <h2>Reduce your carbon footprint!</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+       </div>
+        <div class="right">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</font></p>
+        </div>
+      </div>
+        </div>
+
+{% endblock %}
 
 {% block main %}
 
@@ -33,35 +54,3 @@
 
 {% endblock %}
 
-{% block pollution %}
-
-  <body>
-    <div style="position:absolute; left:40%; top:12%">
-        <h3><font color="black"><div class = "paraWidth">Reduce your carbon footprint!</div></font></h3>
-        <p><font color="black"><div class = "paraWidth">100 carpooling people can prevent 1,320 pounds pounds of carbon monoxide from being released into the atmosphere in a single year.</div></font></p>
-    </div>
-  </body>
-
-{% endblock %}
-
-{% block money %}
-
-  <body>
-    <div style="position:absolute; left:10%; top:12%;">
-        <h3><font color="black"><div class = "paraWidth">Save money!</div></font></h3>
-        <p><font color="black"><div class = "paraWidth">Taking a car on the ferry is expensive. A driver can potentially save over $30 per trip.</div></font></p>
-    </div>
-  </body>
-
-{% endblock %}
-
-{% block convenient %}
-
-  <body>
-    <div style="position:absolute; left:70%; top:12%;">
-        <h3><font color="black"><div class = "paraWidth">More convenient then the bus!</div></font></h3>
-        <p><font color="black"><div class = "paraWidth">Riding the bus sucks. Get a faster, more comfortable rid for as little as $5 - $10</div></font></p>
-    </div>
-  </body>
-
-{% endblock %}

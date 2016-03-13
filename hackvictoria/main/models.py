@@ -17,11 +17,10 @@ class Location(models.Model):
         return self.name
 
 class UserProfile(models.Model):
-
-    user = models.OneToOneField(User)
-
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     #TODO
     #picture = models.ImageField(upload_to='profile_images', blank=True)
+    displayname = models.CharField(max_length=30,null=True )
     age = models.IntegerField(default=0)
     location = models.CharField(max_length=200,null=True )
     joined = models.DateTimeField(null=True)
