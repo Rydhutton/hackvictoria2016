@@ -74,6 +74,10 @@
     border-color: #1e3f7b;
 }
 
+
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
 .navbar-default {
   background-color: #1e3f7b;
   border-color: #0;
