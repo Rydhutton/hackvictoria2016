@@ -1,6 +1,7 @@
 from django import forms
-from main.models import UserProfile
+from main.models import UserProfile, Trip
 from django.contrib.auth.models import User
+import datetime
 
 
 class UserForm(forms.ModelForm):
@@ -16,5 +17,9 @@ class UserProfileForm(forms.ModelForm):
     #TODO
     class Meta:
         model = UserProfile
-        #TODO
-        fields = ()
+
+
+class Trip(forms.ModelForm):
+
+    class Meta:
+        model = Trip

@@ -11,7 +11,6 @@ def mainpage(request):
     context = RequestContext(request)
     registered = False
     if request.method == 'POST':
-        print "POST"
         user_form = UserForm(data=request.POST)
         if user_form.is_valid():
             user = user_form.save()
@@ -47,3 +46,34 @@ def login_user(request):
 
     else:
         return render_to_response('main/login.html', {}, context)
+
+def userpage(request):
+    context = RequestContext(request)
+    if not request.user.is_authenticated():
+         return HttpResponseRedirect('/login/')
+    else:
+        return render_to_response('main/user_page.html',{}, context)
+
+def editprofile(request):
+    context = RequestContext(request)
+    if not request.user.is_authenticated():
+         return HttpResponseRedirect('/login/')
+    else:
+        if request.method == 'POST':
+            form = UserProfileForm(data=request.POST)
+            if form.is_valid():
+                user = form.save()
+                user.save()
+            else:
+                print form.errors
+        else:
+            user_form = UserForm()
+            return render_to_response('main/edit_profile.html',{}, context)
+
+def addtrip(request):
+    context = RequestContext(request)
+    if not request.user.is_authenticated():
+         return HttpResponseRedirect('/login/')
+    else:
+        return render_to_response('main/add_trip.html',{}, context)
+
