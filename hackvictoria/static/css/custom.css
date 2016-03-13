@@ -164,3 +164,10 @@ body {
     width: 700px;
   }
 }
+
+/* Ryan's scripts */
+
+.paraWidth {
+    max-width: 250px;
+    text-align: center;
+}
