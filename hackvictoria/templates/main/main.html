@@ -4,6 +4,7 @@
 {% block main %}
 
     <body>
+    <div style="position:relative;left:center;bottom:-130px;background-color:blue;">
         <h1>Register</h1>
 
         {% if registered %}
@@ -27,6 +28,7 @@
             <a href="#" class="btn btn-lg btn-default">submit</a>
         </form>
         {% endif %}
+    </div>
     </body>
 
 {% endblock %}
@@ -34,10 +36,32 @@
 {% block pollution %}
 
   <body>
-      <div class="inner cover">
-          <h3 class="cover-heading"><font color="black"><div class = "paraWidth">Cover your page.</font></h3>
-          <p class="lead"><font color="black"><div class = "paraWidth">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</font></p>
-      </div>
+    <div style="position:absolute; left:600px; top:100px">
+        <h3><font color="black"><div class = "paraWidth">Reduce your carbon footprint!</div></font></h3>
+        <p><font color="black"><div class = "paraWidth">100 carpooling people can prevent 1,320 pounds pounds of carbon monoxide from being released into the atmosphere in a single year.</div></font></p>
+    </div>
+  </body>
+
+{% endblock %}
+
+{% block money %}
+
+  <body>
+    <div style="position:absolute; left:200px; top:100px;">
+        <h3><font color="black"><div class = "paraWidth">Save money!</div></font></h3>
+        <p><font color="black"><div class = "paraWidth">Taking a car on the ferry is expensive. A driver can potentially save over $30 per trip.</div></font></p>
+    </div>
+  </body>
+
+{% endblock %}
+
+{% block convenient %}
+
+  <body>
+    <div style="position:absolute; left:1000px; top:100px;">
+        <h3><font color="black"><div class = "paraWidth">More convenient then the bus!</div></font></h3>
+        <p><font color="black"><div class = "paraWidth">Riding the bus sucks. Get a faster, more comfortable rid for as little as $5 - $10</div></font></p>
+    </div>
   </body>
 
 {% endblock %}
