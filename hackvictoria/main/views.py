@@ -86,17 +86,19 @@ def userpage(request):
         if tripid != None:
             tripid = request.GET.get('trip')
             usertrip = Trip.objects.get(key=tripid)
+            #print usertrip.date, usertrip.looktype, usertrip.origin, usertrip.destination
 
-            type = 'Passenger'
+            type = 'Driver'
             if usertrip.looktype == 'Driver':
-                type = 'Driver'
+                type = 'Passenger'
 
+            #print type
 
-            print usertrip.date, type, usertrip.origin,usertrip.destination
+            #print usertrip.date, type, usertrip.origin,usertrip.destination
 
-            qs = Trip.objects.filter(date=usertrip.date, looktype=type, origin=usertrip.origin, destination=usertrip.destination).exclude(user=request.user)
-            print qs
-            results = qs.order_by('date').values()
+            qs = Trip.objects.exclude(user=request.user)
+            qs = qs.filter(date=usertrip.date, looktype=type, origin=usertrip.origin, destination=usertrip.destination)
+            results = qs.values()
 
 
 
