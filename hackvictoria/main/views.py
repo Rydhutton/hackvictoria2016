@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from main.forms import UserForm, UserProfileForm
 from django.template import RequestContext
 from django.shortcuts import render_to_response
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 def mainpage(request):
@@ -25,7 +25,7 @@ def mainpage(request):
 
     return render_to_response('main/main.html',{'user_form': user_form, 'registered': registered}, context)
 
-def login(request):
+def login_user(request):
     context = RequestContext(request)
     if request.method == 'POST':
         username = request.POST['username']
