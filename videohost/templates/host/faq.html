@@ -1,63 +1,10 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 
-{% block navbar %}
-
-{% if user.is_authenticated %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="logout/">Logout</a>
-    </div>
-{% else %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="login/">Login</a>
-    </div>
-{% endif %}
-
-{% endblock %}
-
-
-
-
-{% block main %}
-<div class="container">
-    <div class="col-md-6 col-md-offset-3 text-font">
-
-        <h1>FAQ</h1>
-
-        <p><b>What is vihdi.com?</b></p>
-        <p>We provide hosting for video files so that videos can be stored and shared online.</p>
-
-        <p><b>Can anyone upload?</b></p>
-        <p>Only registered members can upload files.</p>
-
-        <p><b>Why cant I register for an account?</b></p>
-        <p>Currently vihdi.com is a private host. Access to the site is given through referral by another member. </p>
-
-        <p><b>Why is there no search?</b></p>
-        <p>As we are a private hosting site only the content that members wish to share is accessible. It is up the member to provide a link to the content. </p>
-
-        <p><b>What kind of files types are allowed?</b></p>
-        <p>vihdi.com deals mostly with video files. However, all files can be uploaded but not all will be accessible in the browser.</p>
-
-        <p><b>What type of content is allowed?</b></p>
-        <p>All content is subject to our Terms of Service. Pornography, nudity, sexual images, offensive material, and copyrighted material is all prohibited.</p>
-
-        <p><b>Where can I report a violation?</b></p>
-
-        <p>More information on reporting copyright issue's can be found on our <a href="/dmca/">DMCA page</a>. All other violations can be reported through
-            <a href="/contact/">contact page</a>.
-        </p>
-
-        <p><b>How can I contact vihdi.com?</b></p>
-
-        <p>Visit our  <a href="/contact/">contact page</a>. We would love to hear from you. </p>
-
-
-
-
-
-
-    </div>
-</div>
-
-{% endblock %}
+</body>
+</html>

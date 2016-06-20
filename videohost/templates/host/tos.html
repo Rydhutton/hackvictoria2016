@@ -1,52 +1,10 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 
-{% block navbar %}
-
-{% if user.is_authenticated %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="logout/">Logout</a>
-    </div>
-{% else %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="login/">Login</a>
-    </div>
-{% endif %}
-
-{% endblock %}
-
-
-
-
-{% block main %}
-<div class="container">
-    <div class="col-md-8 col-md-offset-2 text-font">
-
-            <h1>Terms of Service</h1>
-          <p>
-                This vihdi.com Service Agreement (the "Agreement") describes the terms and conditions on which vihdi.com ("we") offer services to you ("User").
-                By using our services, User agrees to be bound by the following terms and conditions:
-          </p>
-          <p>
-                We reserve the right to disable direct linking on user accounts that are using excessive bandwidth or otherwise abusing the system.
-                Pornography, nudity, sexual images and any kind offensive images or videos are prohibited. Copyrighted material are also strictly prohibited.
-          </p>
-          <p>
-                We reserve the right to decide appropriate content and can delete images or videos at any time without User notification.
-                Users must agree to comply with all laws which apply to their location, including copyright and trademark laws.
-                Images, videos and files that violate copyrights or trademarks are not allowed. If someone has an infringement claim against you, you will be asked
-                to remove the copyrighted file until the issue is resolved. If there is a dispute between participants on this site,
-                vihdi.com is under no obligation to become involved.
-                vihdi.com is not liable for your images, videos or files or any lost business due to the unavailability or loss of the website.
-          </p>
-          <p>
-                We make no claims of future reliability in serving, hosting or storing your images, videos or files.
-                vihdi.com is committed to cooperate with any and all legal authorities if an investigation should arise.
-
-          </p>
-
-
-    </div>
-</div>
-
-{% endblock %}
+</body>
+</html>

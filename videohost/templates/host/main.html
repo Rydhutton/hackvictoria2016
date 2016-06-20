@@ -1,50 +1,10 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 
-
-{% block navbar %}
-
-{% if user.is_authenticated %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="logout/">Logout</a>
-    </div>
-{% else %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="login/">Login</a>
-    </div>
-{% endif %}
-
-{% endblock %}
-
-
-{% block main %}
-<div class="container">
-        <div class="col-md-8 col-md-offset-3 text-font">
-          <div style="margin-top: 50px;" ><h1 style="display: inline;  " >Welcome to </h1> <h1 style="display: inline;" class="logo-font">vihdi</h1>   </div>
-
-           <div style="margin-top: 10px;" >
-                <h4> A private hosting website for videos and other files.</h4>
-           </div>
-
-            <div style="margin-top: 50px;" >
-                <h3>Please log in to begin uploading files.</h3>
-           </div>
-
-             <div style="margin-top: 50px;" >
-                <h3>Don't have an account?</h3>
-                 <h4>As we are a private host membership is only available through referral.</h4>
-                 <h4>For more information please visit our FAQ.</h4>
-           </div>
-
-            <div style="margin-top: 50px;" >
-                <h3>Watch videos?</h3>
-                 <h4>Watching is only available by direct link.</h4>
-           </div>
-
-
-          </div>
-        </div>
-
-
-
-{% endblock %}
+</body>
+</html>
