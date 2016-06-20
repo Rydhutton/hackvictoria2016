@@ -1,3 +1,45 @@
+html, body
+{
+
+    background-color: #F5F5F5;
+
+}
+
+@font-face {
+    font-family: Audiowide;
+    src: url(../fonts/Audiowide/Audiowide-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato/Lato-Regular.ttf);
+}
+
+
+
+@font-face {
+    font-family: Play;
+    src: url(../fonts/Play/Play-Regular.ttf);
+}
+
+
+
+
+.text-font{
+    font-family: Lato;
+}
+
+.nav-font{
+    font-family: Play;
+}
+
+.logo-font{
+    font-family: Audiowide;
+    font-size: 250%
+}
+
+
+
 .horizontal-center {
     position: relative;
     left: 50%;
@@ -55,6 +97,15 @@
    text-align: center;
 }
 
+
+
+.navbar-color{
+    background-color: #1A2930;
+    border-color: #1A2930;
+}
+
+
+
 .navbar {
   border-bottom: 0px;
 }
@@ -63,23 +114,14 @@
   margin-bottom: 0px;
 }
 
-.color-blue {
-    background-color: #6699ff;
-     border-color: #1e3f7b;
-}
-
-.panel-dark{
-    color: #fff;
-    background-color: #1e3f7b;
-    border-color: #1e3f7b;
-}
 
 
 .navbar-default .navbar-brand {
-    color: #FFF;
+    color: #C06014;
+
 }
 .navbar-default {
-  background-color: #1e3f7b;
+  background-color: #0;
   border-color: #0;
   color: white;
 }

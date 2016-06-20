@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block navbar %}
+
+{% if user.is_authenticated %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand " href="logout/">Logout</a>
+    </div>
+{% else %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand " href="login/">Login</a>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+{% block main %}
+<div class="container center">
+    <div class=" text-font" style=" margin-top: 100px;" >
+        <h3>Your message has been sent.</h3>
+        <h4>We will try to respond as quickly as possible.</h4>
+
+    </div>
+</div>
+
+{% endblock %}

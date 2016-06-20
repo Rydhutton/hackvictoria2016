@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+
+{% block navbar %}
+
+{% if user.is_authenticated %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand " href="logout/">Logout</a>
+    </div>
+{% else %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand " href="login/">Login</a>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+
+
+{% block main %}
+    <ul>
+        {% for key in keys %}
+        <li>{{key}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
