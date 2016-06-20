@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
 
-</body>
-</html>
+{% block navbar %}
+
+{% if user.is_authenticated %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand " href="logout/">Logout</a>
+    </div>
+{% else %}
+    <div class="pull-xs-right">
+        <a class="navbar-brand " href="login/">Login</a>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+
+
+
+{% block main %}
+<div class="container">
+    <div class="col-md-8 col-md-offset-2 text-font">
+
+        <h1>DMCA</h1>
+        <p>
+                All claims of copyright infringement on or regarding this website should be delivered to vihdi.com's Designated DMCA Agent.
+            Upon receipt of proper notification of claimed infringement, vihdi.com will follow the procedures outlined herein and in the DMCA.
+            To complete a proper DMCA notice, provide the following information: <br>
+
+        </p>
+        <ol>
+
+            <li>Identify yourself as an owner of copyrighted work or exclusive rights that you believe are infringed, or a person acting on behalf of such owner. </li>
+            <li>Provide information reasonably sufficient to permit vihdi.com to contact you namely, such as name, address, phone number and e-mail address.</li>
+            <li>Specify the copyrighted work that you believe is being infringed, or if a large number of works are being infringed, a representative list of the works. </li>
+            <li>Identify the location of materials that are infringing your copyrighted work, by providing web URLs on vihdi.com  site that contain these materials.</li>
+            <li>State that you have "a good faith belief that use of the aforementioned material is not authorized by the copyright owner, its agents, or the law". </li>
+            <li>State that the information in the notice is accurate, under penalty of perjury. To do so, include the following statement: "I swear, under penalty of perjury,
+                that the information in the notification is accurate and that I am the (copyright) owner or am authorized to act on behalf of the owner of an exclusive right
+                that is allegedly infringed". 7. Sign the notice. If you are providing notice by e-mail, a scanned physical signature or a valid electronic signature will be
+                accepted. </li>
+
+        </ol>
+        <p>
+            Failure to include all of the above information may result in a delay of the processing of the DMCA notification. Please note that under Section 512(f) of the DMCA, any person who knowingly materially misrepresents that material or activity is infringing may be subject to liability.
+        </p>
+
+        <p>
+            Upon recieving a DMCA complain vihdi.com will promptly remove or disable access to the material or activity claiming to be infringing;
+            Notify the Member responsible for posting the alleged infringement of copyright or other intellectual property rights that the material or activity has been removed or access to it has been disabled; and
+            Provide the Member with a Counter Notification Form outlining the steps they are required to follow if they wish to respond.
+            Notify the Complainant once the access to the material has been removed or disabled.
+        </p>
+
+        <p>
+            DMCA Contact <br>
+            Email: vihdihosting@gmail.com <br>
+        </p>
+
+
+
+
+    </div>
+</div>
+
+{% endblock %}
