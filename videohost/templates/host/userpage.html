@@ -1,32 +1,10 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 
-
-{% block navbar %}
-
-{% if user.is_authenticated %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="logout/">Logout</a>
-    </div>
-{% else %}
-    <div class="pull-xs-right">
-        <a class="navbar-brand " href="login/">Login</a>
-    </div>
-{% endif %}
-
-{% endblock %}
-
-
-
-{% block main %}
- <link href="{% static 's3direct/css/bootstrap-progress.min.css' %}" rel="stylesheet">
-    <link href="{% static 's3direct/css/styles.css' %}" rel="stylesheet">
-    <script src="{% static 's3direct/js/scripts.js' %}"></script>
-
-    <div class="container col-md-offset-4 ">
-        <form action="" method="post">{% csrf_token %}
-            {{ form.as_p }}
-        </form>
-    </div>
-
-{% endblock %}
+</body>
+</html>
